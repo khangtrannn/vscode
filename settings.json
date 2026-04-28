@@ -109,10 +109,7 @@
   // purple: #FF79C5
   // purple-dark: #c76196
   // warning: #f48c06
-  // Token color guide:
-  // - Edit the hex value in the rule that matches the token family you want to change.
-  // - Use "Developer: Inspect Editor Tokens and Scopes" when you need the exact scope name.
-  // - Prefer the closest matching group below before adding a new rule.
+  // Token colors tuned to match the Skol - Norrsken screenshot palette.
   "editor.semanticHighlighting.enabled": false,
   "editor.tokenColorCustomizations": {
     "textMateRules": [
@@ -199,26 +196,30 @@
           "foreground": "#70e0c8"
         }
       },
-      // Variables, operators, and named entities.
+      // Plain local variables and parameters.
       {
         "scope": [
-          "keyword.operator",
-          "keyword.operator.assignment",
-          "keyword.operator.expression",
           "variable",
           "variable.other",
+          "variable.other.readwrite",
+          "variable.other.readwrite.ts",
+          "variable.other.readwrite.tsx",
           "variable.parameter",
-          "entity.name"
+          "variable.parameter.ts",
+          "variable.parameter.tsx",
+          "meta.definition.variable"
         ],
         "settings": {
-          "foreground": "#70d3fa"
+          "foreground": "#dbe3ea"
         }
       },
       // Operators and punctuation tuned to the Norrsken TS sample.
       {
         "scope": [
+          "keyword.operator",
           "keyword.operator.assignment",
           "keyword.operator.arrow",
+          "keyword.operator.expression",
           "keyword.operator.type.annotation",
           "punctuation.separator.key-value",
           "punctuation.separator.type"
@@ -284,7 +285,13 @@
           "meta.definition.property.tsx entity.name.function.tsx",
           "entity.name.function",
           "support.function",
-          "meta.function-call"
+          "meta.function-call",
+          "meta.function-call variable.other.property",
+          "meta.function-call variable.other.property.ts",
+          "meta.function-call variable.other.property.tsx",
+          "meta.function-call variable.other.object.property",
+          "meta.function-call variable.other.object.property.ts",
+          "meta.function-call variable.other.object.property.tsx"
         ],
         "settings": {
           "foreground": "#70d3fa"
@@ -325,6 +332,23 @@
           "keyword",
           "storage",
           "storage.type"
+        ],
+        "settings": {
+          "foreground": "#70e0c8",
+          "fontStyle": "italic"
+        }
+      },
+      // Control-flow keywords like if, for, throw, and new.
+      {
+        "scope": [
+          "keyword.control",
+          "keyword.control.conditional",
+          "keyword.control.loop",
+          "keyword.control.flow.throw",
+          "keyword.control.new",
+          "keyword.operator.new",
+          "keyword.operator.expression.new",
+          "keyword.operator.expression.typeof"
         ],
         "settings": {
           "foreground": "#70e0c8",
@@ -443,6 +467,18 @@
       "variable.readonly.constant": {
         "foreground": "#70d3fa",
         "fontStyle": "italic"
+      },
+      "string": {
+        "foreground": "#70e0c8"
+      },
+      "comment": {
+        "foreground": "#3a4b58"
+      },
+      "parameter": {
+        "foreground": "#dbe3ea"
+      },
+      "variable": {
+        "foreground": "#dbe3ea"
       }
     }
   },
