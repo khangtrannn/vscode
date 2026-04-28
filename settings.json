@@ -94,29 +94,53 @@
   "vim.highlightedyank.enable": true,
   "vim.highlightedyank.color": "rgba(2, 62, 138, 0.15)",
   "editor.fontFamily": "'DankMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  // Palette reference:
+  // white-dark: #dbe3ea
+  // grey-light: #3a4b58
+  // grey: #292c36
+  // grey-dark: #1b1e28
+  // blue-light: #ebf5fc
+  // blue: #70d3fa
+  // blue-dark: #4bc8fa
+  // green-light: #ebedf5
+  // green: #70e0c8
+  // green-dark: #52a190
+  // purple-light: #a9afd1
+  // purple: #FF79C5
+  // purple-dark: #c76196
+  // warning: #f48c06
+  // Token color guide:
+  // - Edit the hex value in the rule that matches the token family you want to change.
+  // - Use "Developer: Inspect Editor Tokens and Scopes" when you need the exact scope name.
+  // - Prefer the closest matching group below before adding a new rule.
+  "editor.semanticHighlighting.enabled": false,
   "editor.tokenColorCustomizations": {
     "textMateRules": [
+      // Generic italics for source files and markdown prose.
       {
         "scope": ["source"],
         "settings": {
           "fontStyle": "italic"
         }
       },
+      // Markdown prose.
       {
         "scope": ["text.html.markdown"],
         "settings": {
           "fontStyle": "italic"
         }
       },
+      // Comments.
       {
         "scope": [
           "comment",
           "punctuation.definition.comment"
         ],
         "settings": {
-          "foreground": "#636f88"
+          "foreground": "#3a4b58"
         }
       },
+      // Punctuation and general constants.
       {
         "scope": [
           "punctuation",
@@ -130,9 +154,10 @@
           "markup.deleted"
         ],
         "settings": {
-          "foreground": "#81a1c1"
+          "foreground": "#70d3fa"
         }
       },
+      // Numbers and other numeric literals.
       {
         "scope": [
           "constant.numeric",
@@ -140,9 +165,11 @@
           "constant.numeric.float"
         ],
         "settings": {
-          "foreground": "#b48ead"
+          "foreground": "#70e0c8",
+          "fontStyle": "italic"
         }
       },
+      // Booleans and nullish values.
       {
         "scope": [
           "constant.language.boolean",
@@ -150,9 +177,11 @@
           "constant.language.false"
         ],
         "settings": {
-          "foreground": "#81a1c1"
+          "foreground": "#70e0c8",
+          "fontStyle": "italic"
         }
       },
+      // Strings and string-like attribute values.
       {
         "scope": [
           "string",
@@ -167,9 +196,10 @@
           "markup.inserted"
         ],
         "settings": {
-          "foreground": "#a3be8c"
+          "foreground": "#70e0c8"
         }
       },
+      // Variables, operators, and named entities.
       {
         "scope": [
           "keyword.operator",
@@ -181,14 +211,88 @@
           "entity.name"
         ],
         "settings": {
-          "foreground": "#81a1c1"
+          "foreground": "#70d3fa"
+        }
+      },
+      // Operators and punctuation tuned to the Norrsken TS sample.
+      {
+        "scope": [
+          "keyword.operator.assignment",
+          "keyword.operator.arrow",
+          "keyword.operator.type.annotation",
+          "punctuation.separator.key-value",
+          "punctuation.separator.type"
+        ],
+        "settings": {
+          "foreground": "#a9afd1"
         }
       },
       {
         "scope": [
+          "punctuation.separator.comma",
+          "punctuation.definition.block",
+          "punctuation.section.block",
+          "punctuation.definition.parameters",
+          "punctuation.section.embedded",
+          "meta.brace.curly"
+        ],
+        "settings": {
+          "foreground": "#FF79C5"
+        }
+      },
+      {
+        "scope": [
+          "punctuation.section.parens",
+          "punctuation.definition.group",
+          "meta.brace.round",
+          "punctuation.terminator.statement"
+        ],
+        "settings": {
+          "foreground": "#f9d76a"
+        }
+      },
+      // Object properties.
+      {
+        "scope": [
+          "variable.other.property",
+          "variable.other.property.ts",
+          "variable.other.property.tsx",
+          "variable.object.property",
+          "variable.object.property.ts",
+          "variable.object.property.tsx",
+          "variable.other.object.property",
+          "variable.other.object.property.ts",
+          "variable.other.object.property.tsx",
+          "variable.other.constant.property",
+          "variable.other.constant.property.ts",
+          "variable.other.constant.property.tsx",
+          "variable.other.constant.object.property",
+          "variable.other.constant.object.property.ts",
+          "variable.other.constant.object.property.tsx",
+          "support.variable.property",
+          "support.variable.property.ts",
+          "support.variable.property.tsx"
+        ],
+        "settings": {
+          "foreground": "#a9afd1"
+        }
+      },
+      // Function-valued object members and callable names.
+      {
+        "scope": [
+          "meta.definition.property.ts entity.name.function.ts",
+          "meta.definition.property.tsx entity.name.function.tsx",
           "entity.name.function",
           "support.function",
-          "meta.function-call",
+          "meta.function-call"
+        ],
+        "settings": {
+          "foreground": "#70d3fa"
+        }
+      },
+      // Functions, types, classes, and at-rules.
+      {
+        "scope": [
           "entity.name.type",
           "entity.name.class",
           "support.class",
@@ -197,21 +301,25 @@
           "string.quoted.other.attribute-value"
         ],
         "settings": {
-          "foreground": "#88c0d0"
+          "foreground": "#4bc8fa"
         }
       },
+      // Import/export keywords and storage modifiers.
       {
         "scope": [
           "keyword.control.export",
           "keyword.control.import",
+          "keyword.operator.expression.as",
           "storage.type.class",
           "storage.type.function",
           "storage.modifier"
         ],
         "settings": {
-          "foreground": "#83e1dc"
+          "foreground": "#70e0c8",
+          "fontStyle": "italic"
         }
       },
+      // Core keywords and storage tokens.
       {
         "scope": [
           "keyword",
@@ -219,26 +327,59 @@
           "storage.type"
         ],
         "settings": {
-          "foreground": "#83e1dc"
+          "foreground": "#70e0c8",
+          "fontStyle": "italic"
         }
       },
+      // Return keywords.
       {
         "scope": [
-          "constant.other.caps"
+          "keyword.control.flow.return",
+          "keyword.control.flow.ts",
+          "keyword.control.flow.tsx"
         ],
         "settings": {
-          "foreground": "#FF79C5"
+          "foreground": "#70e0c8"
         }
       },
+      // Explicit null and undefined values.
+      {
+        "scope": [
+          "constant.language.null",
+          "constant.language.undefined"
+        ],
+        "settings": {
+          "foreground": "#70e0c8",
+          "fontStyle": "italic"
+        }
+      },
+      // All-caps constants.
+      {
+        "scope": [
+          "constant.other.caps",
+          "variable.other.constant",
+          "variable.other.constant.ts",
+          "variable.other.constant.tsx",
+          "meta.definition.variable.ts variable.other.constant.ts",
+          "meta.definition.variable.tsx variable.other.constant.tsx"
+        ],
+        "settings": {
+          "foreground": "#70d3fa",
+          "fontStyle": "bold italic"
+        }
+      },
+      // Class and type names.
       {
         "scope": [
           "entity.name.class",
           "entity.name.type"
         ],
         "settings": {
-          "foreground": "#b5d6fb"
+          "foreground": "#b8d5f8",
+          "fontStyle": "italic"
         }
       },
+      // Regexes and emphasis markup.
       {
         "scope": [
           "string.regexp",
@@ -247,7 +388,7 @@
           "markup.bold"
         ],
         "settings": {
-          "foreground": "#ebcb8b"
+          "foreground": "#f48c06"
         }
       },
       {
@@ -264,18 +405,44 @@
       }
     ]
   },
+  // Semantic token colors override theme-provided semantic highlighting.
   "editor.semanticTokenColorCustomizations": {
-    "[norrsken]": {
-      "rules": {
-        "keyword": {
-          "foreground": "#83e1dc"
-        },
-        "variable.constant": {
-          "foreground": "#FF79C5"
-        },
-        "class": {
-          "foreground": "#b5d6fb"
-        }
+    "rules": {
+      "keyword": {
+        "foreground": "#70e0c8",
+        "fontStyle": "italic"
+      },
+      "variable.constant": {
+        "foreground": "#70d3fa",
+        "fontStyle": "bold italic"
+      },
+      "class": {
+        "foreground": "#b8d5f8",
+        "fontStyle": "italic"
+      },
+      "property": {
+        "foreground": "#a9afd1"
+      },
+      "enumMember": {
+        "foreground": "#a9afd1"
+      },
+      "method": {
+        "foreground": "#70d3fa"
+      },
+      "function": {
+        "foreground": "#70d3fa"
+      },
+      "number": {
+        "foreground": "#70e0c8",
+        "fontStyle": "italic"
+      },
+      "type": {
+        "foreground": "#b8d5f8",
+        "fontStyle": "italic"
+      },
+      "variable.readonly.constant": {
+        "foreground": "#70d3fa",
+        "fontStyle": "italic"
       }
     }
   },
